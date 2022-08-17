@@ -5,7 +5,7 @@ import com.squareup.moshi.Json
 
 data class Sources(
     @Json(name = "sources")
-    val sources: List<Source?>? = null,
+    val sources: List<Source>? = null,
     @Json(name = "status")
     val status: String? = null
 )

@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.technicaltestsigma">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +18,20 @@
         android:theme="@style/Theme.TechnicalTestSigma"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pages.news_sources.NewsSourcesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_news_sources"
+            android:theme="@style/Theme.TechnicalTestSigma.NoActionBar" />
+        <activity
+            android:name=".pages.news_article.NewsArticleActivity"
+            android:exported="false"
+            android:label="@string/title_activity_news_sources"
+            android:theme="@style/Theme.TechnicalTestSigma.NoActionBar" />
+        <activity
+            android:name=".pages.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

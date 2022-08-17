@@ -30,8 +30,8 @@ class AppModule {
     } else OkHttpClient
         .Builder()
         .build()
-    //
-//
+
+
     @Provides
     @Singleton
     fun provideRetrofit(
@@ -45,7 +45,7 @@ class AppModule {
             .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
             .build()
 
-//
+
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): NewsApiService = retrofit.create(NewsApiService::class.java)

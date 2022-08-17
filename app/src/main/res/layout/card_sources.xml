@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+
+        <LinearLayout
+            android:id="@+id/layout_Source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/name_sources"
+                    style="@style/fontStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:padding="8dp"
+                    android:textFontWeight="700"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/category_sources"
+                    style="@style/fontStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="8dp"
+                    android:text="@string/business"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/title"
+                style="@style/fontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textFontWeight="600"
+                android:padding="8dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/desc_sources"
+                style="@style/fontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="16sp" />
+
+
+
+            <TextView
+                android:id="@+id/link"
+                style="@style/fontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textColor="#0061AE"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
