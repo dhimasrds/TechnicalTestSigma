@@ -1,5 +1,6 @@
 package com.example.technicaltestsigma.pages.news_article
 
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -27,14 +28,16 @@ class NewsArticleViewModel @ViewModelInject constructor(
     fun getArticleBySource(source: String) {
         viewModelScope.launch(Dispatchers.IO) {
             newsSourcesRepository.getArticelBySource(source).let {
-                val jsonObj = JSONObject(it.errorBody()!!.charStream().readText())
                 if (it.code() ==200) {
                     _article.postValue(it.body()!!.articles!!)
                     if (it.body()!!.totalResults == 0) {
                         _emptyArticle.postValue(true)
                     }
-                }else
+                }else {
+                    val jsonObj = JSONObject(it.errorBody()!!.charStream().readText())
+                    Log.d("statusCode message", (jsonObj.getString("message")))
                     _error.postValue(jsonObj.getString("message"))
+                }
             }
         }
     }

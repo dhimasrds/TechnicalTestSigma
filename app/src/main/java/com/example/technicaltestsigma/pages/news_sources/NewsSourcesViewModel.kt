@@ -34,13 +34,14 @@ class NewsSourcesViewModel @ViewModelInject constructor(
     fun getSourcesByCategory(category: String) {
         viewModelScope.launch(Dispatchers.IO) {
             newsSourcesRepository.getSources(category).let {
-                val jsonObj = JSONObject(it.errorBody()!!.charStream().readText())
                 Log.d("statusCode", it.code().toString())
-                Log.d("statusCode message", (jsonObj.getString("message")))
                 if (it.code() ==200)
                 _sources.postValue(it.body()!!.sources!!)
-                else
+                else {
+                    val jsonObj = JSONObject(it.errorBody()!!.charStream().readText())
+                    Log.d("statusCode message", (jsonObj.getString("message")))
                     _error.postValue(jsonObj.getString("message"))
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.technicaltestsigma.pages.main
 
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -28,13 +29,14 @@ class MainActivityViewModel @ViewModelInject constructor(
 
         viewModelScope.launch(Dispatchers.Default) {
             newsSourcesRepository.getEverything(keyWord).let {
-                val jsonObj = JSONObject(it.errorBody()!!.charStream().readText())
                 if (it.isSuccessful){
                     if(it.body() !=null){
                         _everything.postValue(it.body()!!.articles!!)
                     }
                     _progressbar.postValue(true)
                 }else{
+                    val jsonObj = JSONObject(it.errorBody()!!.charStream().readText())
+                    Log.d("statusCode message", (jsonObj.getString("message")))
                     _error.postValue(jsonObj.getString("message"))
                     _progressbar.postValue(true)
 

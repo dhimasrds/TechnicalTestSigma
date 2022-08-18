@@ -1,7 +1,7 @@
 package com.example.technicaltestsigma.api
 
 object ApiParam {
-    const val API_KEY = "84fe90f2ed304588a80375b58923f4fa"
+    const val API_KEY = "fa8e5027fb8b4ba8b7e241e972f6ab37"
     const val CATEGORY = "category"
     const val BUSINESS = "business"
     const val ENTERTAINMENT = "entertainment"

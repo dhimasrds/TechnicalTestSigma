@@ -25,6 +25,10 @@
         <item name="fontFamily">@font/lato_regular</item>
     </style>
 
+    <style name="fontStyleBold">
+        <item name="fontFamily">@font/lato_bold</item>
+    </style>
+
     <style name="Theme.TechnicalTestSigma.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.TechnicalTestSigma.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
